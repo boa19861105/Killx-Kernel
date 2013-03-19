@@ -19,14 +19,16 @@
 
 static const int cfq_quantum = 8;
 static const int cfq_fifo_expire[2] = { HZ / 4, HZ / 8 };
-static const int cfq_back_max = 16 * 1024;
+/* maximum backwards seek, in KiB */
+static const int cfq_back_max = 16 * 2048;
+/* penalty of a backwards seek */
 static const int cfq_back_penalty = 2;
 static const int cfq_slice_sync = HZ / 10;
 static int cfq_slice_async = HZ / 25;
 static const int cfq_slice_async_rq = 2;
 static int cfq_slice_idle = HZ / 125;
 static int cfq_group_idle = HZ / 125;
-static const int cfq_target_latency = HZ * 3/10; 
+static const int cfq_target_latency = HZ * 2/10; /* 200 ms */
 static const int cfq_hist_divisor = 4;
 
 #define CFQ_IDLE_DELAY		(HZ / 5)
